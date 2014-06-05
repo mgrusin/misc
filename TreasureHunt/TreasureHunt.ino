@@ -25,7 +25,8 @@
 
 // Target coordinates
 
-double TARGET_LAT = 40.065156, TARGET_LON = -105.210142;
+//double TARGET_LAT = 40.065156, TARGET_LON = -105.210142; // Center of SparkFun HQ
+double TARGET_LAT = 40.064594, TARGET_LON = -105.209897;
 
 #include <TinyGPS++.h>
 #include <SoftwareSerial.h>
@@ -116,11 +117,11 @@ void loop()
     lcd_ss.print(abscourse,0);
     lcd_ss.print("d ");
     lcd_ss.print(TinyGPSPlus::cardinal(abscourse));
-    lcd_ss.print(" ");
+    lcd_ss.print("  ");
 
     // Relative course and direction to target
 
-    lcd_ss.print(relcourse);
+    lcd_ss.print(abs(relcourse));
     lcd_ss.print("d ");
     if (abs(relcourse) < 22)
       lcd_ss.print("^");
